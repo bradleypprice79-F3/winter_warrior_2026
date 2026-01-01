@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reindeer Games Dashboard 20250910</title>
+
+  <!-- Plotly.js for charts -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- PapaParse for CSV parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+  <!-- get the names of the latest csv files to load -->
+  <script src="latest_files.js"></script>
+
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f7f9fc;
+    }
+
+    h1 { text-align: center; margin-bottom: 30px; }
+
+    /* Two-column layout for top dashboard */
+    #top-dashboard {
+      display: flex;
+      gap: 20px;
+    }
+
+    #left-column, #right-column {
+      flex: 1;
+      background: white;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background: #eee;
+    }
+
+    /* Bottom dashboard full-width */
+    #bottom-dashboard {
+      margin-top: 40px;
+      background: white;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #teamProgressControls {
+      margin-bottom: 10px;
+    }
+
+    #teamProgressControls label {
+      margin-right: 10px;
+    }
+
+    select {
+      margin-left: 5px;
+      margin-right: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Reindeer Games Dashboard</h1>
+
+  <!-- Top dashboard: two columns -->
+  <div id="top-dashboard">
+    <div id="left-column">
+      <h2>Team Standings</h2>
+      <div id="teamStandingsTable"></div>
+
+      <h2>Progression by Week</h2>
+      <div id="teamProgressControls"></div>
+      <div id="teamProgressChart"></div>
+    </div>
+
+    <div id="right-column">
+      <div>
+        <label for="teamFilter"><strong>Filter by Team:</strong></label>
+        <select id="teamFilter">
+          <option value="">All Teams</option>
+        </select>
+      </div>
+      <h2>Individual Standings</h2>
+      <div id="individualStandingsTable"></div>
+    </div>
+  </div>
+
+  <!-- Bottom dashboard: full-width tables -->
+  <div id="bottom-dashboard">
+    <h2>Aggregated Details</h2>
+    
+    <div>
+      Team: <select id="teamSelect"></select>
+      Week: <select id="weekSelect"></select>
+    </div>
+    <div id="aggregatedDetailsTable"></div>
+    
+    <h2>Team Points</h2>
+    <div id="teamPointsTable"></div>
+    
+    <h2>Individual Points</h2>
+    <div>
+      Day: <select id="daySelect"></select>
+      User: <select id="userSelect"></select>
+    </div>
+    <div id="individualPointsTable"></div>
+  </div>
+
+  <script>
+    // =========================
+    // Global Variables
+    // =========================
+    let individualData = [];
+    let teamData = [];
+    let aggregatedData = [];
+    let teams = []; // list of all team names
+    let users = []; // list of all user_names
+    let weeks = []; // list of weeks
+
+    // =========================
+    // Load CSVs
+    // =========================
+    Papa.parse(latestFiles.individual, {
+      download: true,
+      header: true,
+      complete: (results) => {
+        individualData = results.data;
+        preprocessData();
+        populateTopDashboard();
+        populateDropdowns();
+        updateBottomTables();
+      }
+    });
+
+    Papa.parse(latestFiles.team, {
+      download: true,
+      header: true,
+      complete: (results) => {
+        teamData = results.data;
+        preprocessData();
+        populateTopDashboard();
+        populateDropdowns();
+        updateBottomTables();
+      }
+    });
+
+    Papa.parse(latestFiles.aggregated, {   // assuming you’ll add this filename to latest_files.js
+      download: true,
+      header: true,
+      complete: (results) => {
+        aggregatedData = results.data;
+        updateBottomTables();
+      }
+    });
+    
+    let individualstandings = [];
+
+    Papa.parse(latestFiles.individualstandings, { 
+      download: true,
+      header: true,
+      complete: (results) => {
+        // store parsed data
+        individualstandings = results.data;
+        renderIndividualStandingsTable();
+      }
+    });
+
+    // =========================
+    // Preprocess CSV data
+    // =========================
+    function preprocessData() {
+      if(!individualData.length || !teamData.length) return;
+
+      // Convert points to numbers
+      individualData.forEach(d => d.points = +d.points);
+      teamData.forEach(d => d.points = +d.points);
+
+      // Extract unique teams, users, weeks
+      teams = [...new Set(teamData.map(d => d.Team))].sort();
+      users = [...new Set(aggregatedData.map(d => d.user_name))].sort();
+      weeks = [...new Set(individualData.map(d => d.week))].sort((a,b) => +a - +b);
+    }
+
+    // =========================
+    // Populate top dashboard
+    // =========================
+    function populateTopDashboard() {
+      renderTeamStandingsTable();
+      renderTeamProgressChart();
+      renderIndividualStandingsTable();
+    }
+
+    // -------------------------
+    // Team Standings Table
+    // -------------------------
+    function renderTeamStandingsTable() {
+      const tableContainer = document.getElementById("teamStandingsTable");
+
+      // Aggregate total points by team
+      let standings = {};
+      teamData.forEach(d => {
+        if(!standings[d.Team]) standings[d.Team] = 0;
+        standings[d.Team] += d.points;
+      });
+
+      let standingsArray = Object.entries(standings)
+        .map(([team, points]) => ({team, points}))
+        .sort((a,b) => b.points - a.points);
+
+      let html = "<table><thead><tr><th>Rank</th><th>Team</th><th>Total Points</th></tr></thead><tbody>";
+      standingsArray.forEach((s, idx) => {
+        html += `<tr><td>${idx+1}</td><td>${s.team}</td><td>${s.points}</td></tr>`;
+      });
+      html += "</tbody></table>";
+
+      tableContainer.innerHTML = html;
+    }
+
+    // -------------------------
+    // Team Progression Chart
+    // -------------------------
+    function renderTeamProgressChart() {
+      // Compute cumulative points per team by week
+      let cumulativeData = {};
+      teams.forEach(t => cumulativeData[t] = Array(weeks.length).fill(0));
+
+      weeks.forEach((w, weekIdx) => {
+        teams.forEach(t => {
+          let weeklyPoints = teamData
+            .filter(d => d.Team === t && d.week === w)
+            .reduce((sum,d) => sum+d.points, 0);
+
+          cumulativeData[t][weekIdx] = weekIdx === 0 ? weeklyPoints :
+            cumulativeData[t][weekIdx-1] + weeklyPoints;
+        });
+      });
+
+      // Build checkboxes for toggling lines
+      const controls = document.getElementById("teamProgressControls");
+      controls.innerHTML = "";
+      teams.forEach(t => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" value="${t}" checked> ${t}`;
+        controls.appendChild(label);
+      });
+
+      function drawChart() {
+        let traces = [];
+        const checkboxes = controls.querySelectorAll("input[type=checkbox]");
+        checkboxes.forEach(cb => {
+          if(cb.checked) {
+            traces.push({
+              x: weeks.map(w => "Week " + w),
+              y: cumulativeData[cb.value],
+              mode: "lines+markers",
+              name: cb.value
+            });
+          }
+        });
+
+        Plotly.newPlot("teamProgressChart", traces, {
+            title: "Cumulative Points by Week",
+            xaxis: { title: "Week" },
+            yaxis: { title: "Cumulative Points" },
+            width: 600,    // force width
+            height: 400    // force height
+          });
+      }
+
+      // Add listener to checkboxes
+      controls.querySelectorAll("input[type=checkbox]").forEach(cb => {
+        cb.addEventListener("change", drawChart);
+      });
+
+      drawChart(); // initial draw
+    }
+
+    // -------------------------
+    // Individual Standings Table
+    // -------------------------
+    function renderIndividualStandingsTable() {
+      const container = document.getElementById("individualStandingsTable");
+      container.style.maxHeight = "800px";
+      container.style.overflowY = "auto";
+
+      // Copy data so we don't mutate the original
+        let standings = [...individualstandings];
+
+      // Apply team filter
+      const teamFilter = document.getElementById("teamFilter").value;
+      if (teamFilter) {
+        standings = standings.filter(row => row.Team === teamFilter);
+      }
+
+      // Sort by Total Points (descending)
+      standings.sort((a, b) => b.Total_Points - a.Total_Points);
+
+      // Build table HTML
+      let html = `
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>User</th>
+              <th>Team</th>
+              <th>HS</th>
+              <th>Total Points</th>
+              <th>Posts</th>
+              <th>EC</th>
+              <th>FNG1</th>
+              <th>FNG5</th>
+              <th>FNG_VQ</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+      standings.forEach((row, idx) => {
+        html += `
+          <tr>
+            <td>${idx + 1}</td>
+            <td>${row.user_name}</td>
+            <td>${row.Team}</td>
+            <td>${row.HS}</td>
+            <td>${row.Total_Points}</td>
+            <td>${row.Post_count}</td>
+            <td>${row.ec}</td>
+            <td>${row.FNG1}</td>
+            <td>${row.FNG5}</td>
+            <td>${row.FNG_VQ}</td>
+          </tr>
+        `;
+      });
+
+      html += "</tbody></table>";
+      container.innerHTML = html;
+      }
+
+    // =========================
+    // Populate dropdowns
+    // =========================
+    function populateDropdowns() {
+
+      // Team dropdown for individual standings.
+      const selectindteam = document.getElementById("teamFilter");
+      selectindteam.innerHTML = "<option value=''>Select Team</option>";
+      teams.forEach(t => {
+        selectindteam.innerHTML += `<option value="${t}">${t}</option>`;
+      });
+
+      // Team dropdown
+      const teamSelect = document.getElementById("teamSelect");
+      teamSelect.innerHTML = "<option value=''>Select Team</option>";
+      teams.forEach(t => {
+        teamSelect.innerHTML += `<option value="${t}">${t}</option>`;
+      });
+
+      // Week dropdown
+      const weekSelect = document.getElementById("weekSelect");
+      weekSelect.innerHTML = "<option value=''>Select Week</option>";
+      weeks.forEach(w => {
+        weekSelect.innerHTML += `<option value="${w}">Week ${w}</option>`;
+      });
+
+      // Day and User dropdowns will populate dynamically when Team & Week are selected
+    }
+
+    // =========================
+    // Update bottom tables
+    // =========================
+    function updateBottomTables() {
+      const teamSelect = document.getElementById("teamSelect").value;
+      const weekSelect = document.getElementById("weekSelect").value;
+
+      // ------------------------
+      // Aggregated Details Table
+      // ------------------------
+      const aggregatedContainer = document.getElementById("aggregatedDetailsTable");
+
+      let filteredAgg = aggregatedData;
+
+      // Only filter by team if one is selected
+      if (teamSelect) {
+        filteredAgg = filteredAgg.filter(d => d.team === teamSelect);
+      }
+
+      // Only filter by week if one is selected
+      if (weekSelect) {
+        filteredAgg = filteredAgg.filter(d => d.week === weekSelect);
+      }
+
+      if (filteredAgg.length > 0) {
+        // Build header dynamically from CSV columns
+        const headers = Object.keys(filteredAgg[0]); //.filter(h => h !== "week" && h !== "team");  I was filtering out team and week, but lets leave them in and see how it goes.
+        let html = "<table id='aggregatedTable'><thead><tr>";
+        headers.forEach((h, idx) => {
+          html += `<th onclick="sortTable(${idx})" style="cursor:pointer">${h}</th>`;
+        });
+        html += "</tr></thead><tbody>";
+
+        filteredAgg.forEach(row => {
+          html += "<tr>";
+          headers.forEach(h => html += `<td>${row[h]}</td>`);
+          html += "</tr>";
+        });
+
+        html += "</tbody></table>";
+        aggregatedContainer.innerHTML = html;
+      } else {
+        aggregatedContainer.innerHTML = "<p>No data available.</p>";
+      }
+      
+
+      // ------------------------
+      // Sorting Function
+      // ------------------------
+      function sortTable(colIndex) {
+        const table = document.getElementById("aggregatedTable");
+        const tbody = table.tBodies[0];
+        const rows = Array.from(tbody.rows);
+        const th = table.tHead.rows[0].cells[colIndex];
+
+        // Determine current sort direction
+        const ascending = th.dataset.sort !== "asc";
+        th.dataset.sort = ascending ? "asc" : "desc";
+
+        // Determine if column is numeric
+        const isNumeric = rows.every(row => !isNaN(parseFloat(row.cells[colIndex].innerText)));
+
+        // Sort rows
+        rows.sort((a, b) => {
+          let x = a.cells[colIndex].innerText;
+          let y = b.cells[colIndex].innerText;
+
+          if (isNumeric) {
+            x = parseFloat(x) || 0;
+            y = parseFloat(y) || 0;
+          }
+
+          if (ascending) {
+            return isNumeric ? x - y : x.localeCompare(y);
+          } else {
+            return isNumeric ? y - x : y.localeCompare(x);
+          }
+        });
+
+        // Append sorted rows back to table body
+        rows.forEach(r => tbody.appendChild(r));
+      }
+
+      // ✅ Make available to inline onclick handlers
+      window.sortTable = sortTable;
+      
+
+      // ------------------------
+      // Team Points Table
+      // ------------------------
+      const teamPointsContainer = document.getElementById("teamPointsTable");
+      if(teamSelect && weekSelect) {
+        let filteredTeamRows = teamData
+          .filter(d => d.Team === teamSelect && d.week === weekSelect)
+          .sort((a,b) => new Date(b.date) - new Date(a.date)); // newest first
+
+        let html = "<table><thead><tr><th>Date</th><th>Type</th><th>Points</th><th>Notes</th></tr></thead><tbody>";
+        filteredTeamRows.forEach(d => {
+          html += `<tr><td>${d.date}</td><td>${d.type}</td><td>${d.points}</td><td>${d.notes}</td></tr>`;
+        });
+        html += "</tbody></table>";
+        teamPointsContainer.innerHTML = html;
+      } else {
+        teamPointsContainer.innerHTML = "";
+      }
+
+      
+        // ------------------------
+        // Individual Points Table
+        // ------------------------
+        const individualContainer = document.getElementById("individualPointsTable");
+        const daySelect = document.getElementById("daySelect");
+        const userSelect = document.getElementById("userSelect");
+
+        if(teamSelect && weekSelect) {
+        let filteredIndividualRows = individualData
+            .filter(d => d.Team === teamSelect && d.week === weekSelect)
+            .sort((a,b) => new Date(b.date) - new Date(a.date));
+
+        // Save current selection
+        let selectedDay = daySelect.value;
+        let selectedUser = userSelect.value;
+
+        // Populate Day dropdown only if selection is invalid
+        let days = [...new Set(filteredIndividualRows.map(d=>d.date))].sort((a,b)=>new Date(a)-new Date(b));
+        daySelect.innerHTML = "<option value=''>All Days</option>";
+        days.forEach(day => daySelect.innerHTML += `<option value="${day}">${day}</option>`);
+        if(days.includes(selectedDay)) daySelect.value = selectedDay;
+
+        // Populate User dropdown only if selection is invalid
+        let usersInTeam = [...new Set(filteredIndividualRows.map(d=>d.user_name))].sort();
+        userSelect.innerHTML = "<option value=''>All Users</option>";
+        usersInTeam.forEach(u => userSelect.innerHTML += `<option value="${u}">${u}</option>`);
+        if(usersInTeam.includes(selectedUser)) userSelect.value = selectedUser;
+
+        // Apply day/user filters
+        if(daySelect.value) filteredIndividualRows = filteredIndividualRows.filter(d => d.date === daySelect.value);
+        if(userSelect.value) filteredIndividualRows = filteredIndividualRows.filter(d => d.user_name === userSelect.value);
+
+        // Render table
+        let html = "<table><thead><tr><th>Date</th><th>User</th><th>Type</th><th>Points</th><th>Notes</th></tr></thead><tbody>";
+        filteredIndividualRows.forEach(d => {
+            html += `<tr><td>${d.date}</td><td>${d.user_name}</td><td>${d.type}</td><td>${d.points}</td><td>${d.notes}</td></tr>`;
+        });
+        html += "</tbody></table>";
+        individualContainer.innerHTML = html;
+
+        } else {
+        individualContainer.innerHTML = "";
+        daySelect.innerHTML = "";
+        userSelect.innerHTML = "";
+        }
+    }
+
+    // =========================
+    // Event listeners for bottom filters
+    // =========================
+    document.getElementById("teamSelect").addEventListener("change", updateBottomTables);
+    document.getElementById("weekSelect").addEventListener("change", updateBottomTables);
+    document.getElementById("daySelect").addEventListener("change", updateBottomTables);
+    document.getElementById("userSelect").addEventListener("change", updateBottomTables);
+    // and top right teams filter
+    document.getElementById("teamFilter").addEventListener("change", renderIndividualStandingsTable);
+  </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tsDiv = document.createElement("div");
+    tsDiv.textContent = `Last updated: ${latestFiles.current_timestamp}`;
+    tsDiv.style.position = "absolute";
+    tsDiv.style.top = "10px";
+    tsDiv.style.right = "20px";
+    tsDiv.style.fontSize = "14px";
+    tsDiv.style.color = "#555";
+    tsDiv.style.fontWeight = "bold";
+
+    document.body.appendChild(tsDiv);
+  });
+</script>
+</body>
+</html>
+</body>
+</html>
