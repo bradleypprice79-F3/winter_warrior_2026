@@ -55,9 +55,10 @@ def main():
 
     # 3. Transform get individual winter_warrior row data
     winter_warrior_events = transform.winter_warrior_events(df_enriched)
+    winter_warrior_events2 = winter_warrior_events.copy()
 
     # 4. Aggregate the events for checklist table.
-    df_aggregated_events = transform.winter_warrior_aggregate(winter_warrior_events)
+    df_aggregated_events = transform.winter_warrior_aggregate(winter_warrior_events2)
 
 
     # 2_5.move any existing data into the archive_folder.  It doesnt hurt anything to stay there, but will make the directory cleaner.
