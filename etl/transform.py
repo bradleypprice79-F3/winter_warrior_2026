@@ -1,5 +1,6 @@
 # etl/transform.py
 import pandas as pd
+import numpy as np
 import re
 import datetime
 
@@ -22,6 +23,28 @@ def clean_backblast(text_string):
         text_string = text_string[:50] + "..."
     
     return text_string
+
+def get_units_from_backblast(text_string):
+    if not isinstance(text_string, str):
+        return text_string
+    
+    # 1. Remove "Backblast! " prefix (case-sensitive)
+    text_string = re.sub(r"^Backblast!\s*", "", text_string)
+    text_string = re.sub(r"Slackblast:\s*", "", text_string)
+    
+    # 2. Remove all newlines
+    text_string = text_string.replace("\n", " ")
+    
+    # 3. find the string in question to get the units.
+    match = re.search(
+    r"Total Units \(3rd F Only INCLUDE UNITS\):\s*([0-9]+(?:\.[0-9]+)?)",
+    text_string,
+    flags=re.IGNORECASE
+    )
+
+    units = float(match.group(1)) if match else 0
+    
+    return units
 
 def enrich_data(df_raw, AOs, date_table, PAXcurrent, PAXdraft, backblast):
     """
@@ -61,18 +84,21 @@ def enrich_data(df_raw, AOs, date_table, PAXcurrent, PAXdraft, backblast):
     # Fill in missing names with constants.  We'll need to create a report with these later.
     # Add new PAX that are not on a team to team None. OR, if FNG, to their team.  Troubleshoot Unknown Names.
     df = df.fillna({"Team": "Unknown Team","user_name": "Unknown Name","q_user_name": "Unknown Name"})
+    
+    # get the units from the backblast string
+    backblast["units"] = backblast["backblast"].apply(get_units_from_backblast)
 
     # clean the backblast string
     backblast["backblast"] = backblast["backblast"].apply(clean_backblast)
     
     # Bring in the Backblast string to add notes when desireable
-    df = df.merge(backblast[["bd_date", "ao_id", "q_user_id", "backblast"]], 
+    df = df.merge(backblast[["bd_date", "ao_id", "q_user_id", "backblast", "units"]], 
                   left_on=["date","ao_id","q_user_id"], right_on=["bd_date","ao_id", "q_user_id"], how="left", suffixes=("", "_current")).drop(columns=['bd_date'])
 
     # Select only the columns you want in final df_processed
     df_enriched = df[[
         "date", "week", "ao_id", "q_user_id", "user_id", 
-        "ao", "points", "type", "user_name", "Team", "FNGflag", "backblast"
+        "ao", "points", "type", "user_name", "Team", "FNGflag", "backblast", "units"
     ]]
 
     df_filtered = df_enriched[df_enriched["ao"] != "2nd-f-coffeteria"]
@@ -716,3 +742,148 @@ def calculate_individualstandings(individual_scores: pd.DataFrame, team_scores: 
     final = merged_all.drop(columns=["FNGflag"])
 
     return(final)
+
+def winter_warrior_events(df_enriched: pd.DataFrame) -> pd.DataFrame:
+    winter_warrior_events = []
+
+    # filter for users with a backblast type 'winter_warrior"
+    df_filtered = df_enriched[
+        df_enriched["user_id"].isin(
+            df_enriched.loc[df_enriched["type"] == "winter_warrior", "user_id"]
+        )
+    ]
+    # Remove leading 'ao-' (case-insensitive) from 'ao' column
+    df_filtered['ao'] = df_filtered['ao'].str.replace(r'^ao-', '', case=False, regex=True)
+
+    # change winter_warrior type based on backblast
+    # Use vectorized boolean mask. This updates only rows where type == 'winter_warrior'
+    mask = df_filtered["type"] == "winter_warrior"
+
+    bb = df_filtered.loc[mask, "backblast"].str.upper()
+
+    df_filtered.loc[mask & bb.str.startswith("EC", na=False), "type"] = "ec"
+    df_filtered.loc[mask & bb.str.startswith("SNOWMAN", na=False), "type"] = "snowman"
+    df_filtered.loc[mask & bb.str.startswith("DONATION", na=False), "type"] = "donation"
+
+    # loop through df_filtered and output winter warrior events
+
+    for _, row in df_filtered.iterrows():
+
+        rowtype = "tbd"
+        rowao = row['ao']
+        notes = row["backblast"] #make the note the name of the ao that he went to
+
+        # check to see if he was the Q. If so, output an event.
+        if row['q_user_id']==row['user_id'] and row['type'] in {"qs", "1stf"} :
+            new_row_Q = {
+                "warrior": row['user_name'],
+                "date": row['date'],
+                "type": "Q",
+                "notes": row["ao"] + " - " + row["backblast"]  ,
+                "ao": row['ao']
+                }
+            winter_warrior_events.append(new_row_Q)
+
+      
+            
+        if row['type'] == "1stf":
+            # he posted at a workout!  lets process this row!
+            # add this ao to his AO list --row['ao'] != "downrange"
+            rowtype = "Post"
+            notes = row["ao"] + " - " + row["backblast"] #make the note the name of the ao that he went to
+            rowao = 'black-diamond' if row['ao'] == "downrange" and ("BLACK DIAMOND" in row["backblast"].upper() or re.search(r'(?<![A-Z])BD(?![A-Z])', row["backblast"].upper())) else row["ao"]
+
+        elif row['type'] == "ec":
+            # create the row
+            rowtype = "EC"
+            notes = row['units']
+
+        #Give points for Qsource if he hasnt already gone this week.  Also, for Qing Qsource if he hasnt already Q'd one yet.
+        elif row['type'] == "qs":
+            # create the row
+            rowtype = "QS/3rdF"
+
+        elif row['type'] == "2ndf":
+            # create the row
+            rowtype = "2ndF"
+        
+        elif row['type'] == "3rdf":
+            # create the row
+            rowtype = "QS/3rdF"
+        
+        elif row['type'] == "donation":
+            # create the row
+            rowtype = "Donation"
+        
+        elif row['type'] == "snowman":
+            # create the row
+            rowtype = "Snowman"
+
+        elif row['type'] == "winter_warrior":
+            # create the row
+            rowtype = "Error, fix the title of your backblast"
+
+        else:
+            continue
+
+
+        # Build output row
+        new_row = {
+            "date": row['date'],
+            "warrior": row['user_name'],
+            "ao": rowao,
+            "type": rowtype,
+            "notes": notes
+        }
+
+        winter_warrior_events.append(new_row)
+
+            
+
+    # Convert list of dicts to DataFrame
+    individual_events = pd.DataFrame(winter_warrior_events)
+    return individual_events
+
+
+
+def winter_warrior_aggregate(winter_warrior_events: pd.DataFrame) -> pd.DataFrame:
+    # Example aggregation
+    # Ensure 'notes' is numeric for EC sum
+    winter_warrior_events["notes_numeric"] = pd.to_numeric(
+        winter_warrior_events["notes"], errors="coerce"
+    )
+
+    winter_warrior_events["EC_miles"] = np.where(
+    winter_warrior_events["type"].str.upper() == "EC",
+    winter_warrior_events["notes_numeric"],
+    0)
+
+    # Masks for each condition
+    mask_post = (winter_warrior_events["type"].str.lower() == "post") & \
+                (winter_warrior_events["ao"].str.lower() != "downrange")
+
+    # Temporary column for F3P AOs only.
+    winter_warrior_events["F3P_AO"] = np.where(mask_post, winter_warrior_events["ao"], np.nan)
+
+    # create helper columns
+    winter_warrior_events["is_post"] = winter_warrior_events["type"].str.lower() == "post"
+    winter_warrior_events["is_q"] = winter_warrior_events["type"].str.upper() == "Q"
+    winter_warrior_events["is_2ndf"] = winter_warrior_events["type"].str.upper() == "2NDF"
+    winter_warrior_events["is_qs_3rdf"] = winter_warrior_events["type"].str.upper() == "QS/3rdF"
+    winter_warrior_events["is_donation"] = winter_warrior_events["type"].str.upper() == "DONATION"
+    winter_warrior_events["is_black_diamond"] = winter_warrior_events["ao"].str.upper() == "BLACK-DIAMOND"
+
+    # Aggregate per warrior
+    agg_df = winter_warrior_events.groupby("warrior").agg(
+        Posts=("is_post", "sum"),
+        Miles=("EC_miles", "sum"),
+        Qs=("is_q", "sum"),
+        F2nd=("is_2ndf", "sum"),
+        Qs_3rdF=("is_qs_3rdf", "sum"),
+        Donations=("is_donation", "sum"),
+        Black_Diamonds=("is_black_diamond", "sum"),
+        F3P_AO_count=("F3P_AO", lambda x: pd.unique(x.dropna()).size),
+        F3P_AOs=("F3P_AO", lambda x: list(pd.unique(x.dropna())))
+    ).reset_index()
+
+    return(agg_df)

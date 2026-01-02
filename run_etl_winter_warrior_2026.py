@@ -52,22 +52,13 @@ def main():
 
     # 2. enrich (add user, AO, and date attributes)
     df_enriched = transform.enrich_data(df_raw, AOs, date_table, PAXcurrent, PAXdraft, backblast)
-    #df_enriched.to_csv("df_enriched.csv", index=False)
 
+    # 3. Transform get individual winter_warrior row data
+    winter_warrior_events = transform.winter_warrior_events(df_enriched)
 
+    # 4. Aggregate the events for checklist table.
+    df_aggregated_events = transform.winter_warrior_aggregate(winter_warrior_events)
 
-
-
-    # 2. Transform (apply scoring rules, individual aggregation)
-    individual_scores = transform.calculate_individual_points(df_enriched)
-    # 2. Transform (apply scoring rules, team aggregation)
-    team_scores = transform.calculate_team_points(df_enriched, individual_scores, date_table)
-    # 2. Transform (identify fng's and pax not on a team) (I havent made this function yet, but will later)
-    lone_pax_report = transform.get_lone_pax_report(df_enriched)
-    # 2. Create the checklist table
-    checklist_table = transform.calculate_checklist_table(individual_scores,PAXdraft)
-    # 2. Create the individualstandings table
-    individualstandings = transform.calculate_individualstandings(individual_scores,team_scores,PAXdraft)
 
     # 2_5.move any existing data into the archive_folder.  It doesnt hurt anything to stay there, but will make the directory cleaner.
     for file_name in os.listdir(cfg.REPORTS):
@@ -80,24 +71,15 @@ def main():
             print(f"Exists in archive? {os.path.exists(dst_path)}")
 
     # 3. Save processed data with timestamp in filename
-    load.to_csv(individual_scores[~individual_scores["Team"].isin(["Unknown Team", "NONE"])], f"{cfg.REPORTS}individual_scores_{timestamp}.csv")
+    load.to_csv(winter_warrior_events, f"{cfg.REPORTS}winter_warrior_events_{timestamp}.csv")
     # don't include unknown team in the team score data.
-    load.to_csv(team_scores[~team_scores["Team"].isin(["Unknown Team", "NONE"])], f"{cfg.REPORTS}team_scores_{timestamp}.csv")
-    # lone pax report
-    load.to_csv(lone_pax_report, f"{cfg.REPORTS}lone_pax_report_{timestamp}.csv")
-    # checklist_table
-    load.to_csv(checklist_table, f"{cfg.REPORTS}checklist_table_{timestamp}.csv")
-    # individualstandings_
-    load.to_csv(individualstandings[~individualstandings["Team"].isin(["Unknown Team", "NONE"])], f"{cfg.REPORTS}individualstandings_{timestamp}.csv")
-
+    load.to_csv(df_aggregated_events, f"{cfg.REPORTS}aggregated_events_{timestamp}.csv")
+    
     # Also write a small manifest file so HTML knows the "latest"
     with open(f"{cfg.REPORTS}latest_files.js", "w") as f:
         f.write('const latestFiles = {\n')
-        f.write(f'  individual: "individual_scores_{timestamp}.csv",\n')
-        f.write(f'  team: "team_scores_{timestamp}.csv",\n')
-        f.write(f'  lone_pax: "lone_pax_report_{timestamp}.csv",\n')  
-        f.write(f'  aggregated: "checklist_table_{timestamp}.csv",\n') 
-        f.write(f'  individualstandings: "individualstandings_{timestamp}.csv",\n') 
+        f.write(f'  events: "winter_warrior_events_{timestamp}.csv",\n')
+        f.write(f'  aggregated_events: "aggregated_events_{timestamp}.csv",\n')
         f.write(f'  current_timestamp: "{timestamp_clean}"\n')
         f.write('};\n')
 

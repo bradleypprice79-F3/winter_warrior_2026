@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Winter Warrior Challenge</title>
+
+  <script src="latest_files.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 8px;
+      text-align: left;
+    }
+
+    th {
+      background: #f4f4f4;
+    }
+
+    #filter-container {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 6px;
+      width: 300px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Winter Warrior Challenge</h1>
+  <div><em>Last updated: <span id="timestamp"></span></em></div>
+
+  <!-- Filter -->
+  <div id="filter-container">
+    <label for="warriorFilter"><strong>Filter by Warrior:</strong></label><br>
+    <input
+      type="text"
+      id="warriorFilter"
+      list="warriorSuggestions"
+      placeholder="Start typing a warrior name..."
+    />
+    <datalist id="warriorSuggestions"></datalist>
+  </div>
+
+  <!-- Aggregated Events -->
+  <h2>Aggregated Events</h2>
+  <div id="aggregated-table"></div>
+
+  <!-- Winter Warrior Events -->
+  <h2>Winter Warrior Events</h2>
+  <div id="events-table"></div>
+
+<script>
+  document.getElementById("timestamp").textContent =
+    latestFiles.current_timestamp;
+
+  let aggregatedData = [];
+  let eventsData = [];
+  let allWarriors = new Set();
+
+  Promise.all([
+    d3.csv(latestFiles.aggregated_events),
+    d3.csv(latestFiles.events)
+  ]).then(([agg, events]) => {
+    aggregatedData = agg;
+    eventsData = events;
+
+    // Collect warriors for autocomplete
+    agg.forEach(d => d.warrior && allWarriors.add(d.warrior));
+    events.forEach(d => d.warrior && allWarriors.add(d.warrior));
+
+    populateWarriorSuggestions([...allWarriors]);
+
+    renderTables();
+  });
+
+  function populateWarriorSuggestions(warriors) {
+    const datalist = document.getElementById("warriorSuggestions");
+    datalist.innerHTML = "";
+
+    warriors
+      .sort((a, b) => a.localeCompare(b))
+      .forEach(w => {
+        const option = document.createElement("option");
+        option.value = w;
+        datalist.appendChild(option);
+      });
+  }
+
+  function renderTables() {
+    const filterValue =
+      document.getElementById("warriorFilter").value.toLowerCase();
+
+    const aggFiltered = aggregatedData.filter(d =>
+      !filterValue || d.warrior?.toLowerCase().includes(filterValue)
+    );
+
+    const eventsFiltered = eventsData.filter(d =>
+      !filterValue || d.warrior?.toLowerCase().includes(filterValue)
+    );
+
+    renderTable("#aggregated-table", aggFiltered);
+    renderTable("#events-table", eventsFiltered);
+  }
+
+  function renderTable(container, data) {
+    const div = document.querySelector(container);
+    div.innerHTML = "";
+
+    if (!data.length) {
+      div.innerHTML = "<em>No matching records</em>";
+      return;
+    }
+
+    const table = document.createElement("table");
+    const thead = document.createElement("thead");
+    const tbody = document.createElement("tbody");
+
+    // Headers
+    const headers = Object.keys(data[0]);
+    const trHead = document.createElement("tr");
+    headers.forEach(h => {
+      const th = document.createElement("th");
+      th.textContent = h;
+      trHead.appendChild(th);
+    });
+    thead.appendChild(trHead);
+
+    // Rows
+    data.forEach(row => {
+      const tr = document.createElement("tr");
+      headers.forEach(h => {
+        const td = document.createElement("td");
+        td.textContent = row[h];
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+
+    table.appendChild(thead);
+    table.appendChild(tbody);
+    div.appendChild(table);
+  }
+
+  document
+    .getElementById("warriorFilter")
+    .addEventListener("input", renderTables);
+</script>
+
+</body>
+</html>

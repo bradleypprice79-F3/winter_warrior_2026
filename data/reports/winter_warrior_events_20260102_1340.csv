@@ -1,0 +1,287 @@
+date,warrior,ao,type,notes,notes_numeric,EC_miles,F3P_AO,is_post,is_q,is_2ndf,is_qs_3rdf,is_donation,is_black_diamond
+2025-12-06,Depends (3rdF Q),3rd-f,QS/3rdF,Caroling!,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Depends (3rdF Q),3rd-f,QS/3rdF,Santa’s Workshop,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-13,Foreclosure,2nd-f,2ndF,End of Games 2nd F Event,<NA>,0.0,<NA>,False,False,True,False,False,False
+2025-12-05,Mr. Kotter,2nd-f,2ndF,Werk Force First Friday,<NA>,0.0,<NA>,False,False,True,False,False,False
+2025-12-03,Depends (3rdF Q),2nd-f,2ndF,Twisted Pin bowling,<NA>,0.0,<NA>,False,False,True,False,False,False
+2025-12-03,Mr. Kotter,2nd-f,2ndF,Twisted Pin bowling,<NA>,0.0,<NA>,False,False,True,False,False,False
+2025-12-04,Pull-up,2nd-f,2ndF,Maciano’s Pizza Lunch,<NA>,0.0,<NA>,False,False,True,False,False,False
+2025-12-11,Foreclosure,2nd-f,2ndF,Pizza with brothers!,<NA>,0.0,<NA>,False,False,True,False,False,False
+2025-12-10,Depends (3rdF Q),2nd-f,2ndF,Chicken with friends is better than chicken alone!...,<NA>,0.0,<NA>,False,False,True,False,False,False
+2025-12-20,Mr. Kotter,downrange,Post,downrange - The Wood Ruck,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-31,Duck Hunt,downrange,Post,downrange - Woodsh3d (f3 Southside),<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-13,Foreclosure,black-diamond,Post,downrange - Picasso Black Diamond at The Wood,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-24,Sparkler,downrange,Post,downrange - BC at The ?,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-24,Foreclosure,downrange,Post,downrange - BC at The ?,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-05,F3Plainfield_IL,downrange,Q,downrange - Naperville at The Complex,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-05,F3Plainfield_IL,downrange,Post,downrange - Naperville at The Complex,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-10,F3Plainfield_IL,downrange,Q,downrange - The Tundra,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-10,F3Plainfield_IL,downrange,Post,downrange - The Tundra,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-12,F3Plainfield_IL,downrange,Q,downrange - LS at The Complex and The Arena in Raleigh,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-12,F3Plainfield_IL,downrange,Post,downrange - LS at The Complex and The Arena in Raleigh,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-18,F3Plainfield_IL,downrange,Q,downrange - The Crossings F3 NEO Ruck,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-18,F3Plainfield_IL,downrange,Post,downrange - The Crossings F3 NEO Ruck,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-04,Depends (3rdF Q),downrange,Post,downrange - Spit Valve Q EEBC The wood,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-08,Depends (3rdF Q),downrange,Post,downrange - Band camp with Spit Valve,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-11,Depends (3rdF Q),downrange,Post,downrange - EEBC w/ Spit Valve,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-23,Dilly Dilly,downrange,Post,downrange - F3 West Indy - Deck of Cards BC,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-24,Dilly Dilly,downrange,Post,downrange - F3 West Indy Bootcamp/Ultimate Frisbee,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-26,Dilly Dilly,downrange,Post,downrange - F3 West Indy Bootcamp (Motor Boat Q),<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-16,Sparkler,downrange,Post,downrange - Run club at the ?,<NA>,0.0,<NA>,True,False,False,False,False,False
+2025-12-18,Foreclosure,the-olympiad,Post,the-olympiad - The Villa Paddle (not a board),<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2026-01-02,Foreclosure,the-olympiad,Post,the-olympiad - Running into the New Year,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2026-01-02,Broomstick,the-olympiad,Post,the-olympiad - Running into the New Year,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-18,Depends (3rdF Q),the-olympiad,Post,the-olympiad - The Villa Paddle (not a board),<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2026-01-02,Depends (3rdF Q),the-olympiad,Post,the-olympiad - Running into the New Year,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-12,Foreclosure,the-olympiad,Post,the-olympiad - Jellystone Miles Club,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-16,Foreclosure,the-olympiad,Post,the-olympiad - Broomstick BD team work at the O,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-16,Broomstick,the-olympiad,Q,the-olympiad - Broomstick BD team work at the O,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-16,Broomstick,the-olympiad,Post,the-olympiad - Broomstick BD team work at the O,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-19,Depends (3rdF Q),the-olympiad,Q,the-olympiad - Group of dogs chasing birds,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-19,Depends (3rdF Q),the-olympiad,Post,the-olympiad - Group of dogs chasing birds,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-04,Depends (3rdF Q),the-olympiad,Post,the-olympiad - Peterbilt’s Finger Numbing Bootcamp,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-11,Depends (3rdF Q),the-olympiad,Post,the-olympiad - Around the World Workout,<NA>,0.0,the-olympiad,True,False,False,False,False,False
+2025-12-11,Dilly Dilly,the-colosseum,Post,the-colosseum - 90s jams for days,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-20,Dilly Dilly,the-colosseum,Q,"the-colosseum - Dilly’s twelve days, burpees, Beatdown!",<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-20,Dilly Dilly,the-colosseum,Post,"the-colosseum - Dilly’s twelve days, burpees, Beatdown!",<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-20,Mr. Kotter,the-colosseum,Post,"the-colosseum - Dilly’s twelve days, burpees, Beatdown!",<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-31,Mr. Kotter,the-colosseum,Post,the-colosseum - NYE Ruck Club,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-22,Sparkler,the-colosseum,Post,the-colosseum - Da Bears Run,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-22,Foreclosure,the-colosseum,Post,the-colosseum - Da Bears Run,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-27,Dilly Dilly,the-colosseum,Post,the-colosseum - Backstreet’s 12 last days of F3-mas,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-27,Mr. Kotter,the-colosseum,Post,the-colosseum - Backstreet’s 12 last days of F3-mas,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-13,Dilly Dilly,the-colosseum,Post,the-colosseum - Dauber and Meta’s ladder fun!,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-13,Mr. Kotter,the-colosseum,Post,the-colosseum - Dauber and Meta’s ladder fun!,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2026-01-02,Mr. Kotter,the-colosseum,Post,the-colosseum - 21 x 7 w/ Juanita,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-08,Sparkler,the-colosseum,Post,the-colosseum - Cindy Street Run,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-30,Pull-up,the-colosseum,Post,the-colosseum - Cinderella’s beatdown,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-08,Foreclosure,the-colosseum,Post,the-colosseum - Cindy Street Run,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-08,Broomstick,the-colosseum,Post,the-colosseum - Cindy Street Run,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-30,Broomstick,the-colosseum,Post,the-colosseum - Cinderella’s beatdown,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-10,Mr. Kotter,the-colosseum,Q,the-colosseum - Mr. Kotter’s Ruck Club,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-10,Mr. Kotter,the-colosseum,Post,the-colosseum - Mr. Kotter’s Ruck Club,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-15,Mr. Kotter,the-colosseum,Q,the-colosseum - Two Snowmen,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-15,Mr. Kotter,the-colosseum,Post,the-colosseum - Two Snowmen,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-09,Pull-up,the-colosseum,Post,the-colosseum - Xena’s 3 stations,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-06,Mr. Kotter,the-colosseum,Post,the-colosseum - Spit Valve 12 Steps of Christmas,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-29,Sparkler,the-colosseum,Post,the-colosseum - Finding Nemo Run,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-29,Foreclosure,the-colosseum,Post,the-colosseum - Finding Nemo Run,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-03,Sparkler,the-colosseum,Post,the-colosseum - Pearl’s VQ Ruck Club,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-03,Mr. Kotter,the-colosseum,Post,the-colosseum - Pearl’s VQ Ruck Club,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-16,Pull-up,the-colosseum,Post,the-colosseum - Party’s Pavilion Q,<NA>,0.0,the-colosseum,True,False,False,False,False,False
+2025-12-15,Dilly Dilly,the-ridge,Post,the-ridge - Pearls on a string through cold ass weather cause ...,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-15,Broomstick,the-ridge,Post,the-ridge - Pearls on a string through cold ass weather cause ...,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-04,Dilly Dilly,the-ridge,Post,the-ridge - Happy Camper – Embrace the Arctic Suck!,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-04,Pull-up,the-ridge,Post,the-ridge - Happy Camper – Embrace the Arctic Suck!,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-12,Mr. Kotter,the-ridge,Post,the-ridge - Happy time,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-17,Dilly Dilly,the-ridge,Post,the-ridge - To 135th and back,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-03,Foreclosure,the-ridge,Post,the-ridge - Stay warm run,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-17,Broomstick,the-ridge,Post,the-ridge - To 135th and back,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-02,Mr. Kotter,the-ridge,Post,the-ridge - Jellystone’s Frozen Tundra of Pearls,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-16,Dilly Dilly,the-ridge,Post,"the-ridge - Foundation at The Ridge – Simple, Effective, Full ...",<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-30,Dilly Dilly,the-ridge,Post,the-ridge - Foundation’s high Rep Joggy Thingy,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-16,Mr. Kotter,the-ridge,Post,"the-ridge - Foundation at The Ridge – Simple, Effective, Full ...",<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-10,Broomstick,the-ridge,Post,the-ridge - Wednesday slush run,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-24,Mr. Kotter,the-ridge,Post,the-ridge - Half Mile Repeats,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-05,Dilly Dilly,the-ridge,Post,the-ridge - Frozen Friday,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-05,Broomstick,the-ridge,Post,the-ridge - Frozen Friday,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-05,Mr. Kotter,the-ridge,Post,the-ridge - Frozen Friday,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-26,Pull-up,the-ridge,Post,the-ridge - Juanita’s Return,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-26,Mr. Kotter,the-ridge,Post,the-ridge - Juanita’s Return,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-23,Mr. Kotter,the-ridge,Post,the-ridge - Cinderella's Gift Boxes,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2026-01-01,Pull-up,the-ridge,Post,the-ridge - Zimmer’s Plan C - Ruck Club,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-13,Dilly Dilly,the-ridge,Post,the-ridge - Kotter’s Frozen Ruck,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-27,Pull-up,the-ridge,Post,the-ridge - Mr. Kotter’s Ruck Club,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-13,Mr. Kotter,the-ridge,Q,the-ridge - Kotter’s Frozen Ruck,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-13,Mr. Kotter,the-ridge,Post,the-ridge - Kotter’s Frozen Ruck,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-27,Mr. Kotter,the-ridge,Q,the-ridge - Mr. Kotter’s Ruck Club,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-27,Mr. Kotter,the-ridge,Post,the-ridge - Mr. Kotter’s Ruck Club,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-06,Depends (3rdF Q),the-ridge,Post,the-ridge - Hank & Geicos Co-Q - Capture the flags,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-08,Dilly Dilly,the-ridge,Post,the-ridge - Foghorns Forged series Finale -#Allegiance,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-01,Sparkler,the-ridge,Post,the-ridge - Forged in 15 degree weather- Foghorns Pillar #4,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-08,Pull-up,the-ridge,Post,the-ridge - Foghorns Forged series Finale -#Allegiance,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-01,Foreclosure,the-ridge,Post,the-ridge - Forged in 15 degree weather- Foghorns Pillar #4,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-08,Mr. Kotter,the-ridge,Post,the-ridge - Foghorns Forged series Finale -#Allegiance,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-22,Dilly Dilly,the-ridge,Post,the-ridge - Poptarts Core and More burner,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-11,Sparkler,the-ridge,Post,the-ridge - Celine Dion Brings the Heat to The Ridge ?❄️,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-11,Foreclosure,the-ridge,Post,the-ridge - Celine Dion Brings the Heat to The Ridge ?❄️,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-11,Mr. Kotter,the-ridge,Post,the-ridge - Celine Dion Brings the Heat to The Ridge ?❄️,<NA>,0.0,the-ridge,True,False,False,False,False,False
+2025-12-04,Sparkler,black-diamond,Post,black-diamond - Where’s DOOZIE,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-11,Pull-up,black-diamond,Post,black-diamond - We Walked The Plank(s),<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-04,Broomstick,black-diamond,Post,black-diamond - Where’s DOOZIE,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-11,Broomstick,black-diamond,Post,black-diamond - We Walked The Plank(s),<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-18,Dilly Dilly,black-diamond,Post,black-diamond - Augustus Gloop Brings It F3N Style,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-18,Sparkler,black-diamond,Post,black-diamond - Augustus Gloop Brings It F3N Style,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-18,Pull-up,black-diamond,Post,black-diamond - Augustus Gloop Brings It F3N Style,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-18,Broomstick,black-diamond,Post,black-diamond - Augustus Gloop Brings It F3N Style,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-09,Dilly Dilly,black-diamond,Post,black-diamond - Dauber snow miles at the silo,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-02,Sparkler,black-diamond,Post,black-diamond - Run to north with dauber,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-09,Sparkler,black-diamond,Post,black-diamond - Dauber snow miles at the silo,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-02,Pull-up,black-diamond,Post,black-diamond - Run to north with dauber,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-09,Broomstick,black-diamond,Post,black-diamond - Dauber snow miles at the silo,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-09,Mr. Kotter,black-diamond,Post,black-diamond - Dauber snow miles at the silo,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-23,Sparkler,black-diamond,Post,black-diamond - Break dance beat down,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-23,Pull-up,black-diamond,Post,black-diamond - Break dance beat down,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-23,Foreclosure,black-diamond,Q,black-diamond - Break dance beat down,<NA>,0.0,<NA>,False,True,False,False,False,True
+2025-12-23,Foreclosure,black-diamond,Post,black-diamond - Break dance beat down,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-23,Depends (3rdF Q),black-diamond,Post,black-diamond - Break dance beat down,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-16,Foreclosure,black-diamond,Post,black-diamond - Broomstick relay at the O,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-16,Broomstick,black-diamond,Q,black-diamond - Broomstick relay at the O,<NA>,0.0,<NA>,False,True,False,False,False,True
+2025-12-16,Broomstick,black-diamond,Post,black-diamond - Broomstick relay at the O,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-30,Duck Hunt,black-diamond,Q,black-diamond - Threshold ladder,<NA>,0.0,<NA>,False,True,False,False,False,True
+2025-12-30,Duck Hunt,black-diamond,Post,black-diamond - Threshold ladder,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2026-01-01,Sparkler,black-diamond,Post,black-diamond - Foghorn Brings In 2026,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2026-01-01,Broomstick,black-diamond,Post,black-diamond - Foghorn Brings In 2026,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2026-01-01,Duck Hunt,black-diamond,Post,black-diamond - Foghorn Brings In 2026,<NA>,0.0,black-diamond,True,False,False,False,False,True
+2025-12-19,Duck Hunt,da-grizz,Post,da-grizz - Foundations Blaster,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-06,Dilly Dilly,da-grizz,Post,da-grizz - Meta's Multi-Route Ruck,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-06,Duck Hunt,da-grizz,Post,da-grizz - Meta's Multi-Route Ruck,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-05,Depends (3rdF Q),da-grizz,Post,da-grizz - Sevens,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-05,Duck Hunt,da-grizz,Post,da-grizz - Sevens,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-26,Depends (3rdF Q),da-grizz,Q,da-grizz - Depends on Q,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-26,Depends (3rdF Q),da-grizz,Post,da-grizz - Depends on Q,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-26,Duck Hunt,da-grizz,Post,da-grizz - Depends on Q,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-13,Depends (3rdF Q),da-grizz,Post,da-grizz - Boomer's Artic Circle Ruck,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-13,Duck Hunt,da-grizz,Post,da-grizz - Boomer's Artic Circle Ruck,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-27,Sparkler,da-grizz,Post,da-grizz - Ducks morning Crabs,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-27,Foreclosure,da-grizz,Post,da-grizz - Ducks morning Crabs,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-27,Duck Hunt,da-grizz,Q,da-grizz - Ducks morning Crabs,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-27,Duck Hunt,da-grizz,Post,da-grizz - Ducks morning Crabs,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-12,Depends (3rdF Q),da-grizz,Post,da-grizz - Would you rather…,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-12,Duck Hunt,da-grizz,Post,da-grizz - Would you rather…,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-13,Depends (3rdF Q),da-grizz,Post,da-grizz - Poptarts Music Trivia Bootcamp,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-13,Duck Hunt,da-grizz,Post,da-grizz - Poptarts Music Trivia Bootcamp,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-20,Duck Hunt,da-grizz,Post,da-grizz - Dead-cember Da Grizz,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-06,Dilly Dilly,da-grizz,Post,da-grizz - ?Thesaurus VQ?,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-06,Duck Hunt,da-grizz,Post,da-grizz - ?Thesaurus VQ?,<NA>,0.0,da-grizz,True,False,False,False,False,False
+2025-12-11,Pull-up,3rd-f-qsource,QS/3rdF,Week 6 Q Source Southern Belles,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-11,Depends (3rdF Q),3rd-f-qsource,QS/3rdF,Week 6 Q Source Southern Belles,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-18,Pull-up,3rd-f-qsource,QS/3rdF,8 Block,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-05,Depends (3rdF Q),3rd-f-qsource,Q,3rd-f-qsource - Week 5 at Normas,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-05,Depends (3rdF Q),3rd-f-qsource,QS/3rdF,Week 5 at Normas,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-18,Depends (3rdF Q),3rd-f-qsource,Q,3rd-f-qsource - 8 Block,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-18,Depends (3rdF Q),3rd-f-qsource,QS/3rdF,8 Block,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-19,Depends (3rdF Q),3rd-f-qsource,Q,3rd-f-qsource - 8 Block at Norma's,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-19,Depends (3rdF Q),3rd-f-qsource,QS/3rdF,8 Block at Norma's,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-04,Pull-up,3rd-f-qsource,QS/3rdF,Q4 Leave Right - best Q source ever,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-02,Foreclosure,3rd-f-qsource,QS/3rdF,Leave right,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-09,Foreclosure,3rd-f-qsource,QS/3rdF,Week 6,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Dilly Dilly,3rd-f-qsource,QS/3rdF,Week #6 RDG2025 what’s next?,<NA>,0.0,<NA>,False,False,False,False,False,False
+2025-12-22,Pull-up,the-silo,Post,the-silo - Sparta w Jelly,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-17,Foreclosure,the-silo,Post,"the-silo - Heatwave? Nah, just Jellystone",<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-24,Duck Hunt,the-silo,Post,the-silo - Foundation Claus Christmas Eve Rounds,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-08,Depends (3rdF Q),the-silo,Post,the-silo - Blue Gills favorite bands,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-29,Pull-up,the-silo,Q,the-silo - Polar expedition,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-29,Pull-up,the-silo,Post,the-silo - Polar expedition,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-10,Pull-up,the-silo,Post,the-silo - Peterbilt’s Twin Peaks,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-01,Pull-up,the-silo,Post,the-silo - Frozen Silo,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-01,Depends (3rdF Q),the-silo,Post,the-silo - Frozen Silo,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-01,Mr. Kotter,the-silo,Post,the-silo - Frozen Silo,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-31,Sparkler,the-silo,Post,the-silo - Scratch & Dent 1 Year Manni,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-31,Pull-up,the-silo,Post,the-silo - Scratch & Dent 1 Year Manni,<NA>,0.0,the-silo,True,False,False,False,False,False
+2025-12-26,Sparkler,the-grove,Post,the-grove - Bedpan Friday at The Grove,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-26,Foreclosure,the-grove,Post,the-grove - Bedpan Friday at The Grove,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-05,Sparkler,the-grove,Post,the-grove - Frozen Den Mother Lincoln Elementary Q,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-05,Pull-up,the-grove,Post,the-grove - Frozen Den Mother Lincoln Elementary Q,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-12,Dilly Dilly,the-grove,Post,the-grove - Foundation is Back,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-12,Sparkler,the-grove,Post,the-grove - Foundation is Back,<NA>,0.0,the-grove,True,False,False,False,False,False
+2026-01-02,Sparkler,the-grove,Post,the-grove - Foundation's Present Bootcamp at TG,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-12,Pull-up,the-grove,Post,the-grove - Foundation is Back,<NA>,0.0,the-grove,True,False,False,False,False,False
+2026-01-02,Pull-up,the-grove,Post,the-grove - Foundation's Present Bootcamp at TG,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-15,Sparkler,the-grove,Post,the-grove - Dilbert's Hot and Sweaty Morning,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-15,Pull-up,the-grove,Post,the-grove - Dilbert's Hot and Sweaty Morning,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-19,Dilly Dilly,the-grove,Post,the-grove - Broomsticks Windy DORA + Ten Drop Coffeeteria,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-19,Sparkler,the-grove,Post,the-grove - Broomsticks Windy DORA + Ten Drop Coffeeteria,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-19,Pull-up,the-grove,Post,the-grove - Broomsticks Windy DORA + Ten Drop Coffeeteria,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-19,Broomstick,the-grove,Q,the-grove - Broomsticks Windy DORA + Ten Drop Coffeeteria,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-19,Broomstick,the-grove,Post,the-grove - Broomsticks Windy DORA + Ten Drop Coffeeteria,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-19,Mr. Kotter,the-grove,Post,the-grove - Broomsticks Windy DORA + Ten Drop Coffeeteria,<NA>,0.0,the-grove,True,False,False,False,False,False
+2025-12-31,Dilly Dilly,dmz,Post,dmz - Happy’s NYE bash!,<NA>,0.0,dmz,True,False,False,False,False,False
+2025-12-03,Pull-up,dmz,Q,dmz - Pull-ups Q,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-03,Pull-up,dmz,Post,dmz - Pull-ups Q,<NA>,0.0,dmz,True,False,False,False,False,False
+2025-12-10,Dilly Dilly,dmz,Post,dmz - Derailed,<NA>,0.0,dmz,True,False,False,False,False,False
+2025-12-24,Pull-up,dmz,Post,dmz - Zimma trifecta,<NA>,0.0,dmz,True,False,False,False,False,False
+2025-12-17,Sparkler,dmz,Post,dmz - MCs downrange,<NA>,0.0,dmz,True,False,False,False,False,False
+2025-12-17,Pull-up,dmz,Post,dmz - MCs downrange,<NA>,0.0,dmz,True,False,False,False,False,False
+2025-12-17,Mr. Kotter,dmz,Post,dmz - MCs downrange,<NA>,0.0,dmz,True,False,False,False,False,False
+2025-12-03,Depends (3rdF Q),ravens-nest,Post,"ravens-nest - Ringo, Ravens, and Refrigerated PAX",<NA>,0.0,ravens-nest,True,False,False,False,False,False
+2025-12-10,Sparkler,ravens-nest,Post,ravens-nest - Backblast: Cutler’s FMSC fundraiser,<NA>,0.0,ravens-nest,True,False,False,False,False,False
+2025-12-10,Foreclosure,ravens-nest,Post,ravens-nest - Backblast: Cutler’s FMSC fundraiser,<NA>,0.0,ravens-nest,True,False,False,False,False,False
+2025-12-10,Depends (3rdF Q),ravens-nest,Post,ravens-nest - Backblast: Cutler’s FMSC fundraiser,<NA>,0.0,ravens-nest,True,False,False,False,False,False
+2025-12-10,Duck Hunt,ravens-nest,Post,ravens-nest - Backblast: Cutler’s FMSC fundraiser,<NA>,0.0,ravens-nest,True,False,False,False,False,False
+2025-12-11,Depends (3rdF Q),el-coyote,Post,el-coyote - Sparky Xmas ? & ornament,<NA>,0.0,el-coyote,True,False,False,False,False,False
+2026-01-01,Mr. Kotter,el-coyote,Post,el-coyote - Ducks Medicine Ball Ruck,<NA>,0.0,el-coyote,True,False,False,False,False,False
+2026-01-01,Duck Hunt,el-coyote,Q,el-coyote - Ducks Medicine Ball Ruck,<NA>,0.0,<NA>,False,True,False,False,False,False
+2026-01-01,Duck Hunt,el-coyote,Post,el-coyote - Ducks Medicine Ball Ruck,<NA>,0.0,el-coyote,True,False,False,False,False,False
+2025-12-09,Foreclosure,black-rock,Post,black-rock - Ringos 4 Station Beatdown,<NA>,0.0,black-rock,True,False,False,False,False,False
+2025-12-09,Depends (3rdF Q),black-rock,Post,black-rock - Ringos 4 Station Beatdown,<NA>,0.0,black-rock,True,False,False,False,False,False
+2025-12-30,Sparkler,black-rock,Post,black-rock - Pearls with SoftHands,<NA>,0.0,black-rock,True,False,False,False,False,False
+2025-12-30,Foreclosure,black-rock,Post,black-rock - Pearls with SoftHands,<NA>,0.0,black-rock,True,False,False,False,False,False
+2025-12-16,Depends (3rdF Q),black-rock,Q,black-rock - Depends Beatdown,<NA>,0.0,<NA>,False,True,False,False,False,False
+2025-12-16,Depends (3rdF Q),black-rock,Post,black-rock - Depends Beatdown,<NA>,0.0,black-rock,True,False,False,False,False,False
+2025-12-02,Foreclosure,black-rock,Post,black-rock - Ricolas Farmer Carry Beatdown,<NA>,0.0,black-rock,True,False,False,False,False,False
+2025-12-02,Depends (3rdF Q),black-rock,Post,black-rock - Ricolas Farmer Carry Beatdown,<NA>,0.0,black-rock,True,False,False,False,False,False
+2025-12-02,Sparkler,rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-04,Sparkler,rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-11,Dilly Dilly,rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-05,Depends (3rdF Q),rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-08,Dilly Dilly,rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Dilly Dilly,rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-13,Dilly Dilly,rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-03,Foreclosure,rg_ec2,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-12,Dilly Dilly,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-03,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-12,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-12,Pull-up,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-11,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-04,Dilly Dilly,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-04,Pull-up,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-08,Pull-up,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-12,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Broomstick,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-11,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-11,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-13,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-05,Dilly Dilly,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-08,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-08,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-05,Broomstick,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-08,Broomstick,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-02,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-03,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-08,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-09,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-13,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-05,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-05,Pull-up,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-09,Pull-up,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-09,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-09,Mr. Kotter,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Duck Hunt,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-10,Pull-up,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-04,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-02,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-09,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-01,Sparkler,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-01,Foreclosure,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-01,Pull-up,rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-01,Depends (3rdF Q),rg_ec3,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-06,Dilly Dilly,rg_ec1,EC,0.0,0.0,0.0,<NA>,False,False,False,False,False,False
+2025-12-17,Depends (3rdF Q),rg_ec1,EC,3.45,3.45,3.45,<NA>,False,False,False,False,False,False
+2026-01-01,Dilly Dilly,winter_warrior_2026,EC,2.0,2.0,2.0,<NA>,False,False,False,False,False,False
+2026-01-01,Sparkler,winter_warrior_2026,EC,1.75,1.75,1.75,<NA>,False,False,False,False,False,False
+2026-01-02,Sparkler,winter_warrior_2026,EC,5.7,5.7,5.7,<NA>,False,False,False,False,False,False
+2026-01-01,Duck Hunt,winter_warrior_2026,EC,1.75,1.75,1.75,<NA>,False,False,False,False,False,False
+2026-01-02,Pull-up,winter_warrior_2026,EC,4.25,4.25,4.25,<NA>,False,False,False,False,False,False
+2026-01-01,Sparkler,winter_warrior_2026,Donation,Donation - Mobile Blood Donation (12/30),<NA>,0.0,<NA>,False,False,False,False,True,False
+2026-01-01,F3Plainfield_IL,winter_warrior_2026,Donation,Donation - Mobile Blood Donation (12/30),<NA>,0.0,<NA>,False,False,False,False,True,False
+2026-01-02,Foreclosure,winter_warrior_2026,EC,3.47,3.47,3.47,<NA>,False,False,False,False,False,False
+2026-01-02,Broomstick,winter_warrior_2026,EC,3.47,3.47,3.47,<NA>,False,False,False,False,False,False
+2026-01-02,Depends (3rdF Q),winter_warrior_2026,EC,3.47,3.47,3.47,<NA>,False,False,False,False,False,False
+2025-12-31,Depends (3rdF Q),winter_warrior_2026,EC,3.0,3.0,3.0,<NA>,False,False,False,False,False,False
+2025-12-31,Mr. Kotter,winter_warrior_2026,EC,3.0,3.0,3.0,<NA>,False,False,False,False,False,False
+2026-01-01,Mr. Kotter,winter_warrior_2026,Snowman,Snowman ?,<NA>,0.0,<NA>,False,False,False,False,False,False
+2026-01-02,Mr. Kotter,winter_warrior_2026,EC,2.77,2.77,2.77,<NA>,False,False,False,False,False,False

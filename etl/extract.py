@@ -330,6 +330,7 @@ def get_raw_dimension_data(DB_CONFIG, start_date, end_date):
                 WHEN a.ao LIKE 'rg_csaup%%'   THEN 'csaup'
                 WHEN a.ao LIKE 'rg_3rdf_donation%%'   THEN 'Donation'
                 WHEN a.ao LIKE 'rg_popup%%'   THEN 'popup'
+                WHEN a.ao LIKE 'winter_warrior_%%'   THEN 'winter_warrior'
                 ELSE 'none'
             END AS type
         FROM f3crossroads.aos a '''
