@@ -842,7 +842,12 @@ def winter_warrior_events(df_enriched: pd.DataFrame) -> pd.DataFrame:
 
     # Convert list of dicts to DataFrame
     individual_events = pd.DataFrame(winter_warrior_events)
-    return individual_events
+
+    #clean out bots
+    individual_events_clean = individual_events[
+    ~individual_events["warrior"].isin(["F3Plainfield_IL", "F3CrossroadsIL"])
+]
+    return individual_events_clean
 
 
 
@@ -885,5 +890,7 @@ def winter_warrior_aggregate(winter_warrior_events: pd.DataFrame) -> pd.DataFram
         F3P_AO_count=("F3P_AO", lambda x: pd.unique(x.dropna()).size),
         F3P_AOs=("F3P_AO", lambda x: list(pd.unique(x.dropna())))
     ).reset_index()
+
+    
 
     return(agg_df)
