@@ -24331,14 +24331,6 @@ FNGs: None
 COUNT: 1
 
  "
-2026-01-01,C017KB6LEP7,U057QBF3TPW,"Backblast! Downrange
-DATE: 2026-01-01
-AO: <#C017KB6LEP7>
-Q: <@U057QBF3TPW>
-PAX: <@U057QBF3TPW> 
-FNGs: None
-COUNT: 1
- Bootcamp at The Campus"
 2026-01-01,C017KB6LEP7,U071GSVM24B,"Backblast! New Years Ruck- EEBC at the Wood
 DATE: 2026-01-01
 AO: <#C017KB6LEP7>
@@ -24348,6 +24340,14 @@ FNGs: None
 COUNT: 2
 
  "
+2026-01-01,C017KB6LEP7,U07UCTA492S,"Backblast! Downrange
+DATE: 2026-01-01
+AO: <#C017KB6LEP7>
+Q: <@U07UCTA492S>
+PAX: <@U057QBF3TPW> 
+FNGs: None
+COUNT: 2
+ Bootcamp at The Campus"
 2026-01-01,C017KB6LEP7,USLACKBOT,"Backblast! FNG New Year BC at BP
 DATE: 2026-01-01
 AO: <#C017KB6LEP7>
@@ -24358,13 +24358,13 @@ COUNT: 2
 Total Units (3rd F Only INCLUDE UNITS): 1.75
 
  "
-2026-01-02,C017KB6LEP7,U057QBF3TPW,"Backblast! Downrange
+2026-01-02,C017KB6LEP7,U064F9H5MAR,"Backblast! Downrange
 DATE: 2026-01-02
 AO: <#C017KB6LEP7>
-Q: <@U057QBF3TPW>
+Q: <@U064F9H5MAR>
 PAX: <@U057QBF3TPW> 
 FNGs: None
-COUNT: 1
+COUNT: 2
  Bootcamp at Three Rivers - DogHouse on Q"
 2026-01-02,C017KB6LEP7,U071GSVM24B,"Backblast! Black Panther Run Club
 DATE: 2026-01-02
@@ -24420,13 +24420,13 @@ FNGs: None
 COUNT: 2
 
  "
-2026-01-03,C017KB6LEP7,U057QBF3TPW,"Backblast! Downrange
+2026-01-03,C017KB6LEP7,U08TAFQ4S0M,"Backblast! Downrange
 DATE: 2026-01-03
 AO: <#C017KB6LEP7>
-Q: <@U057QBF3TPW>
+Q: <@U08TAFQ4S0M>
 PAX: <@U057QBF3TPW> 
 FNGs: None
-COUNT: 1
+COUNT: 2
  Bootcamp at Motown - ATF on Q, his 200th post"
 2026-01-03,C017KB6LEP7,USLACKBOT,"Backblast! F3 Indy BC at Sesame Street
 DATE: 2026-01-03
@@ -127174,16 +127174,6 @@ COUNT: 1
 Total Units (3rd F Only INCLUDE UNITS): 3.27
 
  "
-2026-01-04,C0A5TV3KTPH,U057QBF3TPW,"Backblast! EC Hike into the woods, sit 4 hours and watch the pheasant, then hike back out
-DATE: 2026-01-04
-AO: <#C0A5TV3KTPH>
-Q: <@U057QBF3TPW>
-PAX: <@U057QBF3TPW> 
-FNGs: None
-COUNT: 1
-Total Units (3rd F Only INCLUDE UNITS): 1.08 miles. 
-
- "
 2026-01-04,C0A5TV3KTPH,U05ULCL3806,"Backblast! EC 6.2 Mile Run
 DATE: 2026-01-04
 AO: <#C0A5TV3KTPH>
@@ -127211,5 +127201,15 @@ PAX: <@U0995LDSXNC>
 FNGs: None
 COUNT: 1
 Total Units (3rd F Only INCLUDE UNITS): 1.5
+
+ "
+2026-01-04,C0A5TV3KTPH,USLACKBOT,"Backblast! EC Hike into the woods, sit 4 hours and watch the pheasant cause there weren’t any deer, then hike back out
+DATE: 2026-01-04
+AO: <#C0A5TV3KTPH>
+Q: <@USLACKBOT>
+PAX: <@U057QBF3TPW> 
+FNGs: None
+COUNT: 2
+Total Units (3rd F Only INCLUDE UNITS): 1.08 miles. 
 
  "
