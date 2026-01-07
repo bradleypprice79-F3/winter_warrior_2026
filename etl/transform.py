@@ -845,8 +845,10 @@ def winter_warrior_events(df_enriched: pd.DataFrame) -> pd.DataFrame:
 
     #clean out bots
     individual_events_clean = individual_events[
-    ~individual_events["warrior"].isin(["F3Plainfield_IL", "F3CrossroadsIL"])
-]
+    ~individual_events["warrior"].isin(["F3Plainfield_IL", "F3CrossroadsIL"])]
+
+    #sort by date
+    individual_events_clean = individual_events_clean.sort_values("date")
     return individual_events_clean
 
 
