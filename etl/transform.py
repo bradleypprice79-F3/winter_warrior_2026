@@ -874,7 +874,7 @@ def winter_warrior_aggregate(winter_warrior_events: pd.DataFrame) -> pd.DataFram
     winter_warrior_events["is_post"] = winter_warrior_events["type"].str.lower() == "post"
     winter_warrior_events["is_q"] = winter_warrior_events["type"].str.upper() == "Q"
     winter_warrior_events["is_2ndf"] = winter_warrior_events["type"].str.upper() == "2NDF"
-    winter_warrior_events["is_qs_3rdf"] = winter_warrior_events["type"].str.upper() == "QS/3rdF"
+    winter_warrior_events["is_qs_3rdf"] = winter_warrior_events["type"].str.upper() == "QS/3RDF"
     winter_warrior_events["is_donation"] = winter_warrior_events["type"].str.upper() == "DONATION"
     winter_warrior_events["is_black_diamond"] = winter_warrior_events["ao"].str.upper() == "BLACK-DIAMOND"
 
