@@ -70,6 +70,11 @@
   <div id="events-table"></div>
 
 <script>
+
+  const headerDisplayMap = {
+      F2nd: "2ndF"
+    };
+
   document.getElementById("timestamp").textContent =
     latestFiles.current_timestamp;
 
@@ -140,7 +145,7 @@
     const trHead = document.createElement("tr");
     headers.forEach(h => {
       const th = document.createElement("th");
-      th.textContent = h;
+      th.textContent = headerDisplayMap[h] ?? h;
       trHead.appendChild(th);
     });
     thead.appendChild(trHead);
