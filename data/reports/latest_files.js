@@ -1,5 +1,5 @@
 const latestFiles = {
-  events: "winter_warrior_events_20260201_0824.csv",
-  aggregated_events: "aggregated_events_20260201_0824.csv",
-  current_timestamp: "2026-02-01 08:24"
+  events: "winter_warrior_events_20260201_0923.csv",
+  aggregated_events: "aggregated_events_20260201_0923.csv",
+  current_timestamp: "2026-02-01 09:23"
 };
