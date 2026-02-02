@@ -396,6 +396,7 @@ def extract_dimension_tables(base_path):
     PAXcurrent = pd.read_csv(base / "PAXcurrent.csv")
     PAXdraft = pd.read_csv(base / "PAXdraft.csv")
     backblast = pd.read_csv(base / "backblast.csv")
+    requirements = pd.read_csv(base / "requirements.csv")
 
 
-    return AOs, date_table, PAXcurrent, PAXdraft, backblast
+    return AOs, date_table, PAXcurrent, PAXdraft, backblast, requirements

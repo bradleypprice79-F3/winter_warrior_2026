@@ -48,7 +48,7 @@ def main():
     # 1. Extract raw post data (CSV for now)
     df_raw = extract.posts_from_csv_folder(cfg.RAW_DATA, cfg.DAILY_FILE_PATTERN)
 
-    AOs, date_table, PAXcurrent, PAXdraft, backblast = extract.extract_dimension_tables(cfg.DIMENSION_DATA)
+    AOs, date_table, PAXcurrent, PAXdraft, backblast, requirements = extract.extract_dimension_tables(cfg.DIMENSION_DATA)
 
     # 2. enrich (add user, AO, and date attributes)
     df_enriched = transform.enrich_data(df_raw, AOs, date_table, PAXcurrent, PAXdraft, backblast)
@@ -59,6 +59,10 @@ def main():
 
     # 4. Aggregate the events for checklist table.
     df_aggregated_events = transform.winter_warrior_aggregate(winter_warrior_events2)
+
+    # 5. check to see what everyone has remaining.
+    df_required_for_completion = transform.winter_warrior_calc_required(df_aggregated_events, requirements)
+
 
 
     # 2_5.move any existing data into the archive_folder.  It doesnt hurt anything to stay there, but will make the directory cleaner.
