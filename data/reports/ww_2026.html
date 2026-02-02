@@ -90,7 +90,7 @@
     d3.csv(latestFiles.aggregated_events),
     d3.csv(latestFiles.events),
     d3.csv(latestFiles.completion_required)
-  ]).then(([agg, events]) => {
+  ]).then(([agg, events, completion]) => {
     aggregatedData = agg;
     eventsData = events;
     completionData = completion;
