@@ -919,10 +919,10 @@ def winter_warrior_calc_required(df_aggregated_events: pd.DataFrame, requirement
     df_cross["days_remaining"] = len(days[days.weekday != 6])
 
     required_for_completion = pd.DataFrame({
-        "Warrior": df_cross["warrior"],
+        "warrior": df_cross["warrior"],
         "Patch": df_cross["Patch"],
-        "Daily Posts": ((df_cross["posts_reqd"] - df_cross["Posts"]) / df_cross["days_remaining"]).clip(lower=0),
-        "Daily EC": ((df_cross["EC_reqd"] - df_cross["Miles"]) / df_cross["days_remaining"]).clip(lower=0),
+        "Daily Posts": ((df_cross["posts_reqd"] - df_cross["Posts"]) / df_cross["days_remaining"]).clip(lower=0).round(2),
+        "Daily EC": ((df_cross["EC_reqd"] - df_cross["Miles"]) / df_cross["days_remaining"]).clip(lower=0).round(2),
         "Posts": (df_cross["posts_reqd"] - df_cross["Posts"]).clip(lower=0),
         "EC": (df_cross["EC_reqd"] - df_cross["Miles"]).clip(lower=0),
         "Qs": (df_cross["Qs_reqd"] - df_cross["Qs"]).clip(lower=0),
