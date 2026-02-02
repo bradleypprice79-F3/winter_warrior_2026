@@ -131,7 +131,7 @@
     );
 
     const completionFiltered = completionData.filter(d =>
-      !filterValue || d.warrior?.toLowerCase().includes(filterValue)
+      !filterValue || d.warrior?.trim().toLowerCase().includes(filterValue)
     );
 
     renderTable("#aggregated-table", aggFiltered);
