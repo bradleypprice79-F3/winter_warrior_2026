@@ -878,6 +878,7 @@ def winter_warrior_aggregate(winter_warrior_events: pd.DataFrame) -> pd.DataFram
     winter_warrior_events["is_2ndf"] = winter_warrior_events["type"].str.upper() == "2NDF"
     winter_warrior_events["is_qs_3rdf"] = winter_warrior_events["type"].str.upper() == "QS/3RDF"
     winter_warrior_events["is_donation"] = winter_warrior_events["type"].str.upper() == "DONATION"
+    winter_warrior_events["is_snowman"] = winter_warrior_events["type"].str.upper() == "SNOWMAN"
     winter_warrior_events["is_black_diamond"] = (
         (winter_warrior_events["ao"].str.upper() == "BLACK-DIAMOND") &
         (winter_warrior_events["type"].str.lower() == "post")
@@ -892,6 +893,7 @@ def winter_warrior_aggregate(winter_warrior_events: pd.DataFrame) -> pd.DataFram
         Qs_3rdF=("is_qs_3rdf", "sum"),
         Donations=("is_donation", "sum"),
         Black_Diamonds=("is_black_diamond", "sum"),
+        Snowman=("is_snowman", "sum"),
         F3P_AO_count=("F3P_AO", lambda x: pd.unique(x.dropna()).size),
         F3P_AOs=("F3P_AO", lambda x: list(pd.unique(x.dropna())))
     ).reset_index()
@@ -899,3 +901,42 @@ def winter_warrior_aggregate(winter_warrior_events: pd.DataFrame) -> pd.DataFram
     
 
     return(agg_df)
+
+
+
+
+def winter_warrior_calc_required(df_aggregated_events: pd.DataFrame, requirements: pd.DataFrame, timestamp_clean: str) -> pd.DataFrame:
+    # cross join the requirements to the aggregated events
+    df_cross = df_aggregated_events.merge(requirements, how="cross")
+
+    # Calculate and cross join the "days remaining"
+    start = pd.Timestamp(timestamp_clean).normalize()
+    end = pd.Timestamp("2026-02-28")
+    # Create date range excluding the end date
+    days = pd.date_range(start=start + pd.Timedelta(days=1), end=end, freq="D")
+    # Exclude Sundays (weekday == 6)
+    # and add to df_cross
+    df_cross["days_remaining"] = len(days[days.weekday != 6])
+
+    required_for_completion = pd.DataFrame({
+        "Warrior": df_cross["warrior"],
+        "Patch": df_cross["Patch"],
+        "Daily Posts": ((df_cross["posts_reqd"] - df_cross["Posts"]) / df_cross["days_remaining"]).clip(lower=0),
+        "Daily EC": ((df_cross["EC_reqd"] - df_cross["Miles"]) / df_cross["days_remaining"]).clip(lower=0),
+        "Posts": (df_cross["posts_reqd"] - df_cross["Posts"]).clip(lower=0),
+        "EC": (df_cross["EC_reqd"] - df_cross["Miles"]).clip(lower=0),
+        "Qs": (df_cross["Qs_reqd"] - df_cross["Qs"]).clip(lower=0),
+        "2ndF": (df_cross["2ndF_reqd"] - df_cross["F2nd"]).clip(lower=0),
+        "QS/3RDF": (df_cross["QS/3RDF_reqd"] - df_cross["Qs_3rdF"]).clip(lower=0),
+        "Donations": (df_cross["Donations_reqd"] - df_cross["Donations"]).clip(lower=0),
+        "BD": (df_cross["BD_reqd"] - df_cross["Black_Diamonds"]).clip(lower=0),
+        "Snowman": (df_cross["Snowman_reqd"] - df_cross["Snowman"]).clip(lower=0),
+        "AOs": (df_cross["AOs_reqd"] - df_cross["F3P_AO_count"]).clip(lower=0)
+    })
+    
+
+
+
+    
+
+    return(required_for_completion)

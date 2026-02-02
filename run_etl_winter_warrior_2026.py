@@ -61,7 +61,7 @@ def main():
     df_aggregated_events = transform.winter_warrior_aggregate(winter_warrior_events2)
 
     # 5. check to see what everyone has remaining.
-    df_required_for_completion = transform.winter_warrior_calc_required(df_aggregated_events, requirements)
+    df_required_for_completion = transform.winter_warrior_calc_required(df_aggregated_events, requirements,timestamp_clean)
 
 
 
@@ -79,12 +79,14 @@ def main():
     load.to_csv(winter_warrior_events, f"{cfg.REPORTS}winter_warrior_events_{timestamp}.csv")
     # don't include unknown team in the team score data.
     load.to_csv(df_aggregated_events, f"{cfg.REPORTS}aggregated_events_{timestamp}.csv")
+    load.to_csv(df_required_for_completion, f"{cfg.REPORTS}completion_required_{timestamp}.csv")
     
     # Also write a small manifest file so HTML knows the "latest"
     with open(f"{cfg.REPORTS}latest_files.js", "w") as f:
         f.write('const latestFiles = {\n')
         f.write(f'  events: "winter_warrior_events_{timestamp}.csv",\n')
         f.write(f'  aggregated_events: "aggregated_events_{timestamp}.csv",\n')
+        f.write(f'  completion_required: "completion_required_{timestamp}.csv",\n')
         f.write(f'  current_timestamp: "{timestamp_clean}"\n')
         f.write('};\n')
 
