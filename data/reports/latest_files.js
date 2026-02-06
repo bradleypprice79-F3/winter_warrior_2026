@@ -1,6 +1,6 @@
 const latestFiles = {
-  events: "winter_warrior_events_20260206_0532.csv",
-  aggregated_events: "aggregated_events_20260206_0532.csv",
-  completion_required: "completion_required_20260206_0532.csv",
-  current_timestamp: "2026-02-06 05:32"
+  events: "winter_warrior_events_20260206_0656.csv",
+  aggregated_events: "aggregated_events_20260206_0656.csv",
+  completion_required: "completion_required_20260206_0656.csv",
+  current_timestamp: "2026-02-06 06:56"
 };
