@@ -80,6 +80,7 @@ def main():
     # don't include unknown team in the team score data.
     load.to_csv(df_aggregated_events, f"{cfg.REPORTS}aggregated_events_{timestamp}.csv")
     load.to_csv(df_required_for_completion, f"{cfg.REPORTS}completion_required_{timestamp}.csv")
+    #load.to_csv(df_enriched, f"{cfg.REPORTS}enriched_{timestamp}.csv")
     
     # Also write a small manifest file so HTML knows the "latest"
     with open(f"{cfg.REPORTS}latest_files.js", "w") as f:
